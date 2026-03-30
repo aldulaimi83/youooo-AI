@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youooo AI V1</title>
+  <meta
+    name="description"
+    content="Youooo AI V1 - Learn AI basics, prompt engineering, AI tools, Python for AI, projects, final exam, and certificate."
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo">Y</div>
+        <div>
+          <h1>Youooo AI</h1>
+          <p>AI Basics • Prompting • Tools • Python • Projects • Exam</p>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <button id="startPathBtn" class="primary-btn">Start Beginner Path</button>
+        <button id="themeToggle" class="ghost-btn">Toggle Theme</button>
+        <button id="resetProgressBtn" class="danger-btn">Reset Progress</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="pill">AI Academy V1</span>
+        <h2>Learn AI step by step with lessons, projects, exam, and proof.</h2>
+        <p>
+          Study AI fundamentals, prompt engineering, practical tools, Python for AI,
+          mini projects, a final exam, and a completion certificate.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-label">Lessons</span>
+            <strong id="statLessons">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Completed</span>
+            <strong id="statCompleted">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Projects</span>
+            <strong id="statProjects">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Exam Score</span>
+            <strong id="statExamScore">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Progress</span>
+            <strong id="statProgress">0%</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs-panel panel">
+      <div class="tabs-row">
+        <button class="tab-btn active" data-tab="academyTab">Academy</button>
+        <button class="tab-btn" data-tab="roadmapTab">Roadmap</button>
+        <button class="tab-btn" data-tab="projectsTab">Projects</button>
+        <button class="tab-btn" data-tab="examTab">Final Exam</button>
+        <button class="tab-btn" data-tab="certificateTab">Certificate</button>
+      </div>
+    </nav>
+
+    <main>
+      <section id="academyTab" class="tab-content active">
+        <div class="main-grid">
+          <aside class="sidebar panel">
+            <div class="sidebar-top">
+              <h3>AI Curriculum</h3>
+              <input
+                id="lessonSearch"
+                type="text"
+                placeholder="Search lessons..."
+                class="search-input"
+              />
+              <div class="level-filters">
+                <button class="filter-btn active" data-level="All">All</button>
+                <button class="filter-btn" data-level="Beginner">Beginner</button>
+                <button class="filter-btn" data-level="Intermediate">Intermediate</button>
+                <button class="filter-btn" data-level="Advanced">Advanced</button>
+              </div>
+            </div>
+
+            <div id="lessonList" class="lesson-list"></div>
+          </aside>
+
+          <section class="content-column">
+            <article class="lesson-panel panel">
+              <div class="lesson-header">
+                <div>
+                  <span id="lessonLevelBadge" class="pill">Beginner</span>
+                  <h2 id="lessonTitle">Select a lesson</h2>
+                  <p id="lessonSummary" class="muted">
+                    Pick a lesson from the left to start learning.
+                  </p>
+                </div>
+
+                <div class="lesson-actions">
+                  <button id="markCompleteBtn" class="primary-btn">Mark Complete</button>
+                </div>
+              </div>
+
+              <div id="lessonObjectives" class="lesson-objectives"></div>
+
+              <div class="lesson-section">
+                <h3>Lesson</h3>
+                <div id="lessonContent" class="lesson-content">
+                  <p>Welcome to Youooo AI Academy.</p>
+                </div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>Concept Map</h3>
+                <div id="lessonDiagram" class="diagram-box"></div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>Example / Prompt / Code</h3>
+                <pre id="lessonCodeBlock" class="code-block"><code>Lesson example will appear here.</code></pre>
+              </div>
+
+              <div class="lesson-section">
+                <h3>Why This Matters</h3>
+                <div id="lessonWhyMatters" class="mini-box"></div>
+              </div>
+
+              <div class="lesson-section">
+                <h3>Lesson Quiz</h3>
+                <div id="quizContainer" class="quiz-container"></div>
+                <div id="quizScoreBox" class="quiz-score-box muted">Answer the lesson quiz to see your score.</div>
+              </div>
+            </article>
+          </section>
+        </div>
+      </section>
+
+      <section id="roadmapTab" class="tab-content">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <span class="pill">Roadmap</span>
+              <h2>AI learning roadmap</h2>
+              <p class="muted">Go from AI beginner to practical builder.</p>
+            </div>
+          </div>
+
+          <div id="roadmapGrid" class="roadmap-grid"></div>
+        </div>
+      </section>
+
+      <section id="projectsTab" class="tab-content">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <span class="pill">Projects</span>
+              <h2>AI projects and practical builds</h2>
+              <p class="muted">Turn learning into things you can show recruiters and users.</p>
+            </div>
+          </div>
+
+          <div id="projectGrid" class="project-grid"></div>
+        </div>
+      </section>
+
+      <section id="examTab" class="tab-content">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <span class="pill">Final Exam</span>
+              <h2>Test your AI knowledge</h2>
+              <p class="muted">Answer all questions and check your score.</p>
+            </div>
+            <div class="exam-side-stats">
+              <div class="mini-metric">
+                <span>Best Score</span>
+                <strong id="bestExamScore">0%</strong>
+              </div>
+            </div>
+          </div>
+
+          <div id="examContainer" class="exam-container"></div>
+
+          <div class="exam-actions">
+            <button id="submitExamBtn" class="primary-btn">Submit Final Exam</button>
+            <button id="resetExamBtn" class="ghost-btn">Reset Answers</button>
+          </div>
+
+          <div id="examResultBox" class="exam-result-box muted">
+            Your exam result will appear here.
+          </div>
+        </div>
+      </section>
+
+      <section id="certificateTab" class="tab-content">
+        <div class="panel">
+          <div class="section-header">
+            <div>
+              <span class="pill">Certificate</span>
+              <h2>Generate your certificate</h2>
+              <p class="muted">Create a shareable completion certificate for your AI path.</p>
+            </div>
+          </div>
+
+          <div class="certificate-layout">
+            <div class="certificate-form-card">
+              <label class="field-label" for="studentNameInput">Your Name</label>
+              <input
+                id="studentNameInput"
+                class="search-input"
+                type="text"
+                placeholder="Enter your full name"
+              />
+
+              <label class="field-label" for="certificateTrackSelect">Track</label>
+              <select id="certificateTrackSelect" class="search-input">
+                <option value="AI Foundations Track">AI Foundations Track</option>
+                <option value="Prompt Engineering Track">Prompt Engineering Track</option>
+                <option value="Full AI Academy Track">Full AI Academy Track</option>
+              </select>
+
+              <div class="certificate-actions">
+                <button id="generateCertificateBtn" class="primary-btn">Generate Certificate</button>
+                <button id="printCertificateBtn" class="ghost-btn">Print / Save PDF</button>
+              </div>
+
+              <div class="certificate-metrics">
+                <div class="mini-metric">
+                  <span>Lessons Done</span>
+                  <strong id="certificateLessonsDone">0</strong>
+                </div>
+                <div class="mini-metric">
+                  <span>Projects</span>
+                  <strong id="certificateProjectsDone">0</strong>
+                </div>
+                <div class="mini-metric">
+                  <span>Best Exam</span>
+                  <strong id="certificateExamDone">0%</strong>
+                </div>
+                <div class="mini-metric">
+                  <span>Status</span>
+                  <strong id="certificateStatusText">In Progress</strong>
+                </div>
+              </div>
+            </div>
+
+            <div id="certificatePreview" class="certificate-preview">
+              <div class="certificate-inner">
+                <div class="cert-border">
+                  <div class="cert-topline">YOUOOO ACADEMY</div>
+                  <div class="cert-badge-row">
+                    <span class="cert-badge">AI</span>
+                    <span class="cert-badge">Prompting</span>
+                    <span class="cert-badge">Projects</span>
+                  </div>
+                  <h2>Certificate of Achievement</h2>
+                  <p class="cert-text">This is proudly awarded to</p>
+                  <h3 id="certificateNamePreview">Your Name Here</h3>
+                  <p class="cert-text">
+                    for successfully completing the
+                    <strong id="certificateTrackPreview">Full AI Academy Track</strong>
+                  </p>
+                  <p class="cert-text">
+                    Lessons completed:
+                    <strong id="certificateLessonsPreview">0</strong>
+                    • Projects:
+                    <strong id="certificateProjectsPreview">0</strong>
+                    • Best exam:
+                    <strong id="certificateExamPreview">0%</strong>
+                  </p>
+                  <p class="cert-text">
+                    Certificate ID:
+                    <strong id="certificateIdPreview">YAI-0000</strong>
+                  </p>
+
+                  <div class="cert-signature-row">
+                    <div class="cert-signature">
+                      <div class="signature-line"></div>
+                      <span>Date</span>
+                      <strong id="certificateDatePreview">--</strong>
+                    </div>
+                    <div class="cert-signature">
+                      <div class="signature-line"></div>
+                      <span>Issued by</span>
+                      <strong>Youooo AI Academy</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Youooo AI • Practical AI learning with prompting, tools, projects, exam, and certificate</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
